@@ -5,7 +5,7 @@
  *    *    * Description: prints Hello ewrhyb
  *     *     *
  *      *      * Return: 0
- *       */
+  */
 
 int main(void)
 
