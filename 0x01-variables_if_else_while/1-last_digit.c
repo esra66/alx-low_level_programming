@@ -3,6 +3,11 @@
 #include <time.h>
 #include <unistd.h>
 #include <string.h>
+/**
+ *  * main - Entry point
+ *   * 
+ *    * Return: Always 0
+ */
 int main(void)
 {
 int n;
