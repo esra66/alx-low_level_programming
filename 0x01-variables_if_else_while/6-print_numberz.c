@@ -11,9 +11,9 @@
  */
 int main(void)
 {
-int d;
-for (d = 0; d <= 9; d++)
-putchar(d);
+int x;
+for (x = '0'; x <= '9'; x++)
+putchar(x);
 putchar('\n');
 return (0);
 }
