@@ -5,7 +5,7 @@
  *   *   *
  *    *    *
  *     *     * @a: This is the entry
- *      *      *
+ *      *      *@b: This is the entry
  */
 void swap_int(int *a, int *b)
 {
