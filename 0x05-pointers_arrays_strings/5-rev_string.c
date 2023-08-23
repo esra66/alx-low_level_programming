@@ -12,7 +12,7 @@ void rev_string(char *s)
 
 	while (length > i)
 	{
-		swap_char(s + length, s + i);
+		swap_int(s + length, s + i);
 		i++;
 		length--;
 	}
