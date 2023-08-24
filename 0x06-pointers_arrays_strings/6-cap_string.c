@@ -6,11 +6,11 @@
  */
 int _indexOf(char a)
 {
-	int i;
+	int x;
 	char capArr[13] = {'\n', '\t', ' ', '.', ',', ';', ',', '!', '?', '(',')', '{', '}'};
-	for (i = 0; i < 13; i++)
+	for (x = 0; x < 13; x++)
 	{
-		if (capArr[i] == a)
+		if (capArr[x] == a)
 			return (1);
 	}
 	return (0);
@@ -22,14 +22,14 @@ int _indexOf(char a)
  */
 char *cap_string(char *s)
 {
-	int i;
+	int x;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (_indexOf(s[i]))
+		if (_indexOf(s[x]))
 			continue;
-		if (s[i] >= 'a' && s[i] <= 'z' && (_indexOf(s[i - 1]) || i == 0))
-			s[i] = s[i] - 32;
+		if (s[x] >= 'a' && s[x] <= 'z' && (_indexOf(s[x - 1]) || x == 0))
+			s[x] = s[x] - 32;
 	}
 	return (s);
 }
