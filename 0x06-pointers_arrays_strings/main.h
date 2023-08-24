@@ -2,4 +2,5 @@
 #define MAIN_H
 
 char *_strncat(char *dest, char *src);
+int _putchar(char c);
 #endif
