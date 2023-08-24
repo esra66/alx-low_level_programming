@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * *_strcat- function that can concentrates two strings.
+ * *_strcat- function that concatenates two strings.
  * Description: function print string.
  * @dest: destination string.
  * @src: source string.
@@ -21,7 +21,7 @@ char *_strcat(char *dest, char *src)
 	}
 	for (k = 0; k < '\0'; k++)
 	{
-		dest[k] = src[k];
+		dest[k + 1] = src[k];
 	}
 	return (dest);
 }
