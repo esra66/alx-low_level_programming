@@ -1,21 +1,14 @@
 #include "main.h"
-#include <math.h>
 /**
- *  * print_diagsums- function print sum of diagonals of a square.
- *   * Description: diagonals od square.
- *    * @a:pointer of array
- *     * @size: input
- *      * Return: void no return,
+ *  * set_string - sets the value of a pointer to a char
+ *   *
+ *    * @s: The pointer to change
+ *     * @to: The value to change the pointer to
+ *      *
+ *       * Return: nothing
  */
-void print_diagsums(int *a, int size)
+
+void set_string(char **s, char *to)
 {
-
-	int k, sum1 = 0, sum2 = 0;
-
-	for (k =  0; k < size; k++)
-	{
-		sum1 += *(a + k * size + k);
-		sum2 += *(a + k * size + (size - k - 1));
-	}
-	printf("%d, %d\n", sum1, sum2);
+		*s = to;
 }
