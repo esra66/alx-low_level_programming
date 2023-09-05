@@ -21,7 +21,7 @@ for (i = 0; str[i] != '\0'; i++)
 {
 }
 size = i;
-ar = malloc(sizeof(str) * size);
+ar = malloc(sizeof(*str) * size);
 if (ar == 0)
 {
 return (NULL);
