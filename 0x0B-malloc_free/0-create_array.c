@@ -15,7 +15,7 @@ char *ar;
 unsigned int i;
 
 ar = malloc(size * sizeof(c));
-if (ar == NULL)
+if (ar == NULL || size == 0)
 {
 	return (NULL);
 }
