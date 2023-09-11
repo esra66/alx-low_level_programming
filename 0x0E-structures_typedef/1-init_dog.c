@@ -1,27 +1,22 @@
-#ifndef MY_HEADER_H
-#define MY_HEADER_H 
 #include <stdio.h>
-#include <stdlib.h>
-
+#include <stdlib>
+#include"dog.h"
 /**
- * struct dog - dog attribute
+ * init_dog - dog attribute
+ * @d: pointer to struct dog to initialize
  * @name: The name of the dog
  * @age: The age of the dog
  * @owner: The owner of the dog
  * Return: Always 0.
  * Description: The owner of the dog
  */
-struct dog 
-{
-	char *name;
-	float age;
-	char *owner;
-};
 
-void init_dog(struct dog *dog, char *name, float age, char *owner)
+void init_dog(struct dog *d, char *name, float age, char *owner)
 {
+	if (d == NULL)
+		d = malloc(sizeof(struct dog));
 	dog->name = name;
 	dog->age = age;
 	dog->owner = owner;
 }
-#endif
+
