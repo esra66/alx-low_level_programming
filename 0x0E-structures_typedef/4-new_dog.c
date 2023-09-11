@@ -1,0 +1,22 @@
+#include <stdlib.h>
+#include "dog.h"
+
+/**
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	int y;
+
+	y = 0;
+
+	while (s[y] != '\0')
+	{
+		y++;
+	}
+
+	return (y);
+}
+
