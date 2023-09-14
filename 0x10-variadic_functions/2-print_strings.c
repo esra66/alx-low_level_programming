@@ -5,23 +5,24 @@
  *   * @separator: The string separator
  *    * @n: The quantity of numbers
  *     * @...: The list of numbers
+ *      *
  *       * Return: Nothing
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	var_list args;
+	va_list valist;
 	unsigned int i;
 	char *p;
 
-	var_start(args, n);
+	va_start(valist, n);
 
-	for (i = 0; i < n - 1; i++)
+	for (i = 0; i < n; i++)
 	{
 		if (separator != NULL && i != 0)
 			printf("%s", separator);
-		p = va_arg(args, char *);
+		p = va_arg(valist, char *);
 		printf("%s", (p == NULL) ? "(nil)" : p);
 	}
-	var_end(args);
 	printf("\n");
+	va_end(valist);
 }
