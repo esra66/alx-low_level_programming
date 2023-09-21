@@ -2,7 +2,7 @@
 
 /**
  * print_list - entry point
- * @h: pointer 
+ * @h: pointer
  * Return: counter
  */
 size_t print_list(const list_t *h)
@@ -23,5 +23,5 @@ size_t print_list(const list_t *h)
 		counter++;
 	}
 
-	return counter;
+	return (counter);
 }
