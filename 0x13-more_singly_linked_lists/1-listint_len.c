@@ -1,11 +1,11 @@
 #include"lists.h"
 /**
- * print_listint_len - entry point
+ * listint_len - entry point
  * @h: pointer
  * Return: count
  */
 
-size_t print_listint_len(const listint_t *h)
+size_t listint_len(const listint_t *h)
 {
 	int count = 0;
 
