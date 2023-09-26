@@ -2,7 +2,7 @@
 /**
  * add_nodeint_end - entry point
  * @head: pointer
- * n: integer
+ * @n: integer
  * Return: Address of newnode
  */
 
