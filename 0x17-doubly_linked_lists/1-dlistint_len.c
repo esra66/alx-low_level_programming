@@ -1,18 +1,20 @@
-#include"lists.h"
+#include "lists.h"
 
 /**
- *  * dlistint_len - Returns the number of elements
- *   * @h: Pointer to the head of the doubly linked list
- *    * Return: The number of elements in the doubly linked list
+ *  * dlistint_len - Finds the number of nodes in a doubly linked list.
+ *   * @h: The linked list.
+ *    * Return: Number of nodes.
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	size_t x;
+	size_t near_nodes = 0;
+	const dlistint_t *present = h;
 
-	for (x = 0; h != NULL; x++)
+	while (present != NULL)
 	{
-		h = h->next;
+		present = present->next;
+		near_nodes++;
 	}
 
-	return (x);
+	return (near_nodes);
 }
