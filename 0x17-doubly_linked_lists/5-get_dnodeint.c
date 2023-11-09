@@ -1,30 +1,27 @@
 #include "lists.h"
 
 /**
- *  * get_dnodeint_at_index - entry point
- *     * @head: head
- *      * @index: index of the node
- *       * Return: nth node
- *        */
+ *  * get_dnodeint_at_index - get elem with index from dbl
+ *   * @head: the head
+ *    * @index: the index
+ *     * Return: the node of index
+ *      */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	unsigned int x;
+	unsigned int x = 0;
 
 	if (head == NULL)
+	{
 		return (NULL);
-
-	while (head->prev != NULL)
-		head = head->prev;
-
-	x = 0;
-
+	}
 	while (head != NULL)
 	{
-		if (x == index)
-			break;
+		if (index == x)
+		{
+			return (head);
+		}
 		head = head->next;
 		x++;
 	}
-
-	return (head);
+	return (NULL);
 }
