@@ -3,122 +3,124 @@
 #include <time.h>
 
 /**
- *  * find_max_char - finds the biggest ASCII value in the string
- *    * @username: user's username
- *     * @length: length of the username
- *      * Return: the biggest ASCII value
+ *  * f4 - finds the biggest number
+ *    * @usrn: username
+ *     * @len: length of username
+ *      * Return: the biggest number
  */
-int find_max_char(char *username, int length)
+int f4(char *usrn, int len)
 {
-	int max_char;
-	int current_char;
+	int ch;
+	int vch;
 	unsigned int rand_num;
 
-	max_char = *username;
-	current_char = 0;
+	ch = *usrn;
+	vch = 0;
 
-	while (current_char < length)
+	while (vch < len)
 	{
-		if (max_char < username[current_char])
-			max_char = username[current_char];
-		current_char += 1;
+		if (ch < usrn[vch])
+			ch = usrn[vch];
+		vch += 1;
 	}
 
-	srand(max_char ^ 14);
+	srand(ch ^ 14);
 	rand_num = rand();
 
 	return (rand_num & 63);
 }
 
 /**
- *  * multiply_chars - multiplies each character of the username
- *    * @username: user's username
- *     * @length: length of the username
- *      * Return: multiplied character
+ *  * f5 - multiplies each char of username
+ *   *
+ *    * @usrn: username
+ *     * @len: length of username
+ *      * Return: multiplied char
  */
-int multiply_chars(char *username, int length)
+int f5(char *usrn, int len)
 {
-	int result;
-	int current_char;
+	int ch;
+	int vch;
 
-	result = current_char = 0;
+	ch = vch = 0;
 
-	while (current_char < length)
+	while (vch < len)
 	{
-		result = result + username[current_char] * username[current_char];
-		current_char += 1;
+		ch = ch + usrn[vch] * usrn[vch];
+		vch += 1;
 	}
 
-	return (((unsigned int)result ^ 239) & 63);
+	return (((unsigned int)ch ^ 239) & 63);
 }
 
 /**
- *  * generate_random_char - generates a random character
- *    * @username: user's username
- *     * Return: a random character
+ *  * f6 - generates a random char
+ *   *
+ *    * @usrn: username
+ *     * Return: a random char
  */
-int generate_random_char(char *username)
+int f6(char *usrn)
 {
-	int random_char;
-	int loop_count;
+	int ch;
+	int vch;
 
-	random_char = loop_count = 0;
+	ch = vch = 0;
 
-	while (loop_count < *username)
+	while (vch < *usrn)
 	{
-		random_char = rand();
-		loop_count += 1;
+		ch = rand();
+		vch += 1;
 	}
 
-	return (((unsigned int)random_char ^ 229) & 63);
+	return (((unsigned int)ch ^ 229) & 63);
 }
 
 /**
  *  * main - Entry point
+ *   *
  *    * @argc: arguments count
  *     * @argv: arguments vector
  *      * Return: Always 0
- *       */
+ */
 int main(int argc, char **argv)
 {
 	char keygen[7];
-	int length, max_ascii, sum_chars, multiplied_chars, random_char;
-	long alphabet[] = {
+	int len, ch, vch;
+	long alph[] = {
 		0x3877445248432d41, 0x42394530534e6c37, 0x4d6e706762695432,
 		0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
 		0x723161513346655a, 0x6b756f494b646850 };
 	(void) argc;
 
-	for (length = 0; argv[1][length]; length++)
+	for (len = 0; argv[1][len]; len++)
 		;
-
-	keygen[0] = ((char *)alphabet)[(length ^ 59) & 63];
-	sum_chars = max_ascii = 0;
-
-	while (max_ascii < length)
+	/* ----------- f1 ----------- */
+	keygen[0] = ((char *)alph)[(len ^ 59) & 63];
+	/* ----------- f2 ----------- */
+	ch = vch = 0;
+	while (vch < len)
 	{
-		sum_chars = sum_chars + argv[1][max_ascii];
-		max_ascii = max_ascii + 1;
+		ch = ch + argv[1][vch];
+		vch = vch + 1;
 	}
-	keygen[1] = ((char *)alphabet)[(sum_chars ^ 79) & 63];
-
-	max_ascii = 1;
-	sum_chars = 0;
-	while (sum_chars < length)
+	keygen[1] = ((char *)alph)[(ch ^ 79) & 63];
+	/* ----------- f3 ----------- */
+	ch = 1;
+	vch = 0;
+	while (vch < len)
 	{
-		max_ascii = argv[1][sum_chars] * max_ascii;
-		sum_chars = sum_chars + 1;
+		ch = argv[1][vch] * ch;
+		vch = vch + 1;
 	}
-	keygen[2] = ((char *)alphabet)[(max_ascii ^ 85) & 63];
-
-	keygen[3] = ((char *)alphabet)[find_max_char(argv[1], length)];
-	keygen[4] = ((char *)alphabet)[multiply_chars(argv[1], length)];
-	keygen[5] = ((char *)alphabet)[generate_random_char(argv[1])];
+	keygen[2] = ((char *)alph)[(ch ^ 85) & 63];
+	/* ----------- f4 ----------- */
+	keygen[3] = ((char *)alph)[f4(argv[1], len)];
+	/* ----------- f5 ----------- */
+	keygen[4] = ((char *)alph)[f5(argv[1], len)];
+	/* ----------- f6 ----------- */
+	keygen[5] = ((char *)alph)[f6(argv[1])];
 	keygen[6] = '\0';
-
-	for (max_ascii = 0; keygen[max_ascii]; max_ascii++)
-		printf("%c", keygen[max_ascii]);
-
+	for (ch = 0; keygen[ch]; ch++)
+		printf("%c", keygen[ch]);
 	return (0);
 }
-
