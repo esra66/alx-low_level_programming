@@ -7,14 +7,14 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	size_t near_nodes = 0;
-	const dlistint_t *present = h;
+	size_t nodes = 0;
+	const dlistint_t *pres = h;
 
-	while (present != NULL)
+	while (pres != NULL)
 	{
-		present = present->next;
-		near_nodes++;
+		pres = pres->next;
+		nodes++;
 	}
 
-	return (near_nodes);
+	return (nodes);
 }
